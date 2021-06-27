@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body style="background-color:black;">
+<div>
+	<div align = "center" >
+	<h1 style="color:white">ToDo LIST</h1>
+	</div>
+	<tr>
+		<div align = "center" >		   
+		     <h3><a  th:href="@{'/new'}">Add TODO</a></h3>     
+	    </div>
+	
+	</tr>
+	<tr>
+	
+	<div align = "center" >
+                 <table class="table table-hover table-dark" >
+  <thead class="thead-dark">
+    <tr>
+            <th>Title</th>
+            <th>Target Date</th>
+            <th>Todo Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+   	</tr>
+  </thead>
+  <tbody>
+        <tr  th:each="student : ${liststudent }">
+      
+		<td th:text="${student.title}">Title</td>
+		<td th:text="${student.targetdate}">Target Date</td>
+		<td th:text="${student.status}">Todo Status</td>				
+		<td>
+			<a th:href="@{'/edit/' + ${student.id}}">Edit</a>
+		</td>							    
+		<td>
+			<a th:href="@{'/delete/' + ${student.id}}">Delete</a>
+		</td>		    
+		</tr> 
+   
+  </tbody>
+</table>
+
+		<div align = "center" >		   
+		     <h3><a  th:href="@{'/'}">LOGOUT</a></h3>     
+	    </div>
+</div>
+                    
+                 </div>
+
+            </div> 
+
+	</tr>
+
+	</tbody>
+	</table>
+	<div>
+	
+	
+	
+	
+</body>
+</html>
+
+
